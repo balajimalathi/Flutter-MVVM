@@ -26,13 +26,12 @@ class AppThemeLight extends AppTheme with ILightTheme {
         floatingActionButtonTheme: ThemeData.light()
             .floatingActionButtonTheme
             .copyWith(backgroundColor: colorSchemeLight.lightGray),
-        tabBarTheme: TabBarTheme(
-          labelPadding: insets.lowPaddingAll,
-          unselectedLabelStyle:
-              textThemeLight.headline4.copyWith(color: colorSchemeLight.gray),
-        ),
-        appBarTheme:
-            AppBarTheme(color: colorSchemeLight.boldGreen),
+        // tabBarTheme: TabBarTheme(
+        //   labelPadding: insets.lowPaddingAll,
+        //   unselectedLabelStyle:
+        //       textThemeLight.overline.copyWith(color: colorSchemeLight.gray),
+        // ),
+        appBarTheme: AppBarTheme(color: colorSchemeLight.boldGreen),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
             backgroundColor: colorSchemeLight.lightGray),
       );

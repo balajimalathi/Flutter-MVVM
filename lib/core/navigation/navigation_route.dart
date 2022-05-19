@@ -1,6 +1,6 @@
 import 'package:buildbase/core/constants/navigation/navigation_constants.dart';
-import 'package:buildbase/view/authenticate/login/view/login_view.dart';
-import 'package:buildbase/view/splashscreen.dart';
+import 'package:buildbase/view/example/examples.dart';
+import 'package:buildbase/view/splashscreen/spash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,11 +15,11 @@ class NavigationRoute {
       case NavigationConstants.ROOT:
         return normalNavigate(SplashScreen());
 
-      case NavigationConstants.LANDING_VIEW:
-        return normalNavigate(LandingView());
+      case NavigationConstants.EXAMPLE:
+        return normalNavigate(Examples());
 
-      case NavigationConstants.LOGIN_VIEW:
-        return normalNavigate(LoginView());
+      // case NavigationConstants.LOGIN_VIEW:
+      //   return normalNavigate(LoginView());
 
       // case NavigationConstants.ONBOARD:
       //   return normalNavigate(OnBoardView());

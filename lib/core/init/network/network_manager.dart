@@ -1,7 +1,8 @@
+import 'package:buildbase/core/constants/app/app_contansts.dart';
 import 'package:dio/dio.dart';
 
 class NetworkManager {
-  static final String url = 'BASE_URL';
+  static final String url = ApplicationConstants.BASE_URL;
 
   static BaseOptions opts = BaseOptions(
     baseUrl: url,
@@ -14,64 +15,37 @@ class NetworkManager {
     return Dio(opts);
   }
 
-  static Dio addInterceptors(Dio dio) {
-    return dio
-      ..interceptors.add(
-        InterceptorsWrapper(
-            onRequest: (options, handler) => requestInterceptor(options),
-            onError: (e, handler) async {
-              // if (e.response?.statusCode == 401) {
-              //   try {
-              //     await dio
-              //         .post(
-              //         "https://refresh.api",
-              //         data: jsonEncode(
-              //             {"refresh_token": refreshtoken}))
-              //         .then((value) async {
-              //       if (value.statusCode == 201) {
-              //         //get new tokens ...
-              //         print("access token" + token);
-              //         print("refresh token" + refreshtoken);
-              //         //set bearer
-              //         e.requestOptions.headers["Authorization"] =
-              //             "Bearer " + token;
-              //         //create request with new access token
-              //         final opts = new Options(
-              //             method: e.requestOptions.method,
-              //             headers: e.requestOptions.headers);
-              //         final cloneReq = await dio.request(e.requestOptions.path,
-              //             options: opts,
-              //             data: e.requestOptions.data,
-              //             queryParameters: e.requestOptions.queryParameters);
-              //
-              //         return handler.resolve(cloneReq);
-              //       }
-              //       return e;
-              //     });
-              //     return dio;
-              //   } catch (e, st) {
-              //
-              //   }
-              // }
-            }
-            // onError: (e, handler) async {
-            //   return e.response.data;
-            // }
-            ),
-      );
-  }
+  // static Dio addInterceptors(Dio dio) {
+  //   return dio
+  //     ..interceptors.add(
+  //       InterceptorsWrapper(
+  //           onRequest: (options, handler) => requestInterceptor(options),
+  //           onResponse: (response, handler) =>
+  //               responseInterceptor(response, handler),
+  //           onError: (e, handler) async {
+  //             print("Interceptor Error" + e.toString());
+  //           }),
+  //     );
+  // }
 
   static dynamic requestInterceptor(RequestOptions options) async {
     // Get your JWT token
-    const token = '';
-    options.headers.addAll({"Authorization": "Bearer $token"});
+    // const token = '';
+    // options.headers.addAll({"Authorization": "Bearer $token"});
     return options;
   }
 
+  static dynamic responseInterceptor(response, handler) async {
+    return handler.next(response);
+  }
+
   static final dio = createDio();
-  static final baseAPI = addInterceptors(dio);
+  // static final baseAPI = addInterceptors(dio);
+  static final baseAPI = createDio();
 
   Future<Response> get(String url) async {
+    print(url);
+
     try {
       Response response = await baseAPI.get(url);
       return response;

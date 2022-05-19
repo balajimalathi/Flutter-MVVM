@@ -5,28 +5,22 @@ import 'package:intl/intl.dart';
 
 import 'color.dart';
 
-class Utils{
-
-
-  String DT_toString(DateTime dateTime)
-  {
+class Utils {
+  String DT_toString(DateTime dateTime) {
     var outputFormat = DateFormat('dd MMM yyyy');
     String outputDate = outputFormat.format(dateTime).toString();
     return outputDate;
   }
 
-  String DTA_toString(DateTime dateTime)
-  {
+  String DTA_toString(DateTime dateTime) {
     var outputFormat = DateFormat('dd MMM yyyy H:m:s');
     String outputDate = outputFormat.format(dateTime).toString();
     return outputDate;
   }
 
-  Color StatusCheck(String status)
-  {
+  Color StatusCheck(String status) {
     Color color = stat_closed;
-    switch(status)
-    {
+    switch (status) {
       case "Forecast":
         color = stat_forecast;
         break;
@@ -41,10 +35,12 @@ class Utils{
         break;
       default:
         break;
-
     }
     return color;
   }
+}
 
-
+//Global Spacer
+Widget spacer(double size) {
+  return SizedBox(height: size, width: size);
 }

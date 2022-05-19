@@ -26,8 +26,11 @@ dependencies:
   dartx: ^0.7.1
   file_picker: ^4.1.2
   after_layout: ^1.1.0
-  syncfusion_flutter_pdfviewer: ^19.2.62-beta
-  syncfusion_flutter_charts: ^19.2.62
+  connectivity_plus: ^2.3.0
+  dartz: ^0.10.1
+  unicons: ^2.1.0
+  animate_do: ^2.1.0
+  sembast: ^3.2.0
 
   change_app_package_name: ^1.0.0
 
@@ -47,7 +50,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - asset/images/
-    - asset/icons/
     - asset/
 
   # An image asset can refer to one or more resolution-specific "variants", see

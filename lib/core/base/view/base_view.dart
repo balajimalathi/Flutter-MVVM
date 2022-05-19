@@ -1,4 +1,5 @@
 import 'package:buildbase/core/base/model/base_model.dart';
+import 'package:buildbase/core/constants/enums/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,9 +27,10 @@ class _BaseViewState<T extends BaseModel> extends State<BaseView<T>> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider<T>(
-        create: (context) => model,
-        child: Consumer<T>(builder: widget.builder));
+  Widget build(BuildContext context) {  
+    return ChangeNotifierProvider.value(
+      value: model,
+      child: Consumer<T>(builder: widget.builder),
+    );
   }
 }

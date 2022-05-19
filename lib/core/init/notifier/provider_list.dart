@@ -1,3 +1,5 @@
+import 'package:buildbase/core/base/model/base_model.dart';
+import 'package:buildbase/core/constants/enums/connectivity.dart';
 import 'package:buildbase/product/provider/bottom_provider.dart';
 import 'package:buildbase/product/provider/orient_provider.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +27,12 @@ class ApplicationProvider {
     ChangeNotifierProvider<OrientationProvider>(
       create: (_) => OrientationProvider(),
     ),
+    // ChangeNotifierProvider<InternetModel>(
+    //   create: (_) => InternetModel(),
+    // ),
+    // StreamProvider<ConnectivityStatus>(
+    //     create:(_)=> ConnectivityService().connectionStatusController.stream,
+    //     initialData: ConnectivityStatus.Offline),
   ];
 
   List<SingleChildWidget> uiChangesItems = [];
