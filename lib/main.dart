@@ -1,9 +1,7 @@
-import 'dart:io';
 
-import 'package:buildbase/core/base/model/base_model.dart';
-import 'package:buildbase/core/constants/enums/connectivity.dart';
 import 'package:buildbase/core/constants/navigation/navigation_constants.dart';
 import 'package:buildbase/core/init/cache/locale_manager.dart';
+import 'package:buildbase/core/init/database/db_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,26 +18,30 @@ Future<void> main() async {
 
   //Setting up SharedPreferences
   await LocaleManager.preferencesInit();
+  
   //DI - GETIT
   setupLocator();
 
+  //Database initialization - DI
+  Init.initialize(); 
+  
   runApp(MarkApp());
 }
 
 class MarkApp extends StatelessWidget {
+  const MarkApp({Key? key}) : super(key: key); 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [...ApplicationProvider.instance.dependItems],
         child: LayoutBuilder(builder: (context, constraint) {
           return OrientationBuilder(builder: (context, orientation) {
-            SizeConfig().init(constraint, orientation);
-  
+            SizeConfig().init(constraint, orientation); 
             return MaterialApp(
               // locale: context.locale,
               // localizationsDelegates: context.localizationDelegates,
               // supportedLocales: context.supportedLocales,
-              initialRoute: NavigationConstants.EXAMPLE,
+              initialRoute: NavigationConstants.ROOT,
               onGenerateRoute: NavigationRoute.instance.generateRoute,
               theme: Provider.of<ThemeNotifier>(context).currentTheme,
               navigatorKey: NavigationService.instance.navigatorKey,

@@ -38,7 +38,6 @@ extension PaddingExtensionSymmetric on BuildContext {
       EdgeInsets.symmetric(vertical: mediumValue);
   EdgeInsets get paddingHighVertical =>
       EdgeInsets.symmetric(vertical: highValue);
-
   EdgeInsets get paddingLowHorizontal =>
       EdgeInsets.symmetric(horizontal: lowValue);
   EdgeInsets get paddingNormalHorizontal =>
@@ -54,6 +53,6 @@ extension PageExtension on BuildContext {
 }
 
 extension DurationExtension on BuildContext {
-  Duration get durationLow => Duration(milliseconds: 500);
-  Duration get durationNormal => Duration(seconds: 1);
+  Duration get durationLow => const Duration(milliseconds: 500);
+  Duration get durationNormal => const Duration(seconds: 1);
 }

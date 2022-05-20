@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:buildbase/core/base/locator.dart';
 import 'package:buildbase/core/init/network/network_manager.dart';
 import 'package:buildbase/core/init/routes/network_route.dart';
@@ -12,19 +10,18 @@ import 'IService.dart';
 class Service extends IService with Apichecker {
   final NetworkManager _api = locator<NetworkManager>();
   final UserDao _userDao = UserDao();
+
   @override
   Future<String> getServiceData() {
     return Future.delayed(Duration(seconds: 5), () => "data");
   }
 
+  /// With dartz
   @override
   Future<Either<String, List<Datum>>> getAllUsers() async {
-    List<Datum> userModel = [];
     try {
       var response = await _api.get(NetworkRoutes.USER);
-      print(response.data);
       if (200 == response.statusCode) {
-        print(response.data);
         List<Datum> userModel = response.data["data"]
             .map<Datum>((json) => Datum.fromJson(json))
             .toList();
@@ -40,19 +37,15 @@ class Service extends IService with Apichecker {
     }
   }
 
+  /// Generic way
   @override
   Future<List<Datum>> getAll() async {
     List<Datum> userModel = [];
-    // try {
     var response = await _api.get(NetworkRoutes.USER);
-    print(response.data);
     if (200 == response.statusCode) {
-      print(response.data["data"]);
-
       List<Datum> userModel = response.data["data"]
           .map<Datum>((json) => Datum.fromJson(json))
           .toList();
-
       return userModel;
     }
     return userModel;

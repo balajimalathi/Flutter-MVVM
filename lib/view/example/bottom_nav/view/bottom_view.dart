@@ -1,21 +1,17 @@
-import 'dart:async';
-import 'dart:io';
 
 import 'package:after_layout/after_layout.dart';
-import 'package:buildbase/core/base/model/base_model.dart';
 import 'package:buildbase/core/base/view/base_view.dart';
 import 'package:buildbase/core/constants/enums/connectivity.dart';
 import 'package:buildbase/core/constants/enums/viewstate.dart';
+import 'package:buildbase/core/extensions/context_extension.dart';
 import 'package:buildbase/core/init/theme/light/padding_insets.dart';
 import 'package:buildbase/product/provider/bottom_provider.dart';
 import 'package:buildbase/product/utils/utils.dart';
 import 'package:buildbase/view/example/bottom_nav/model/user_model.dart';
 import 'package:buildbase/view/example/bottom_nav/view_model/view_model.dart';
 import 'package:buildbase/view/example/database/user_dao.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sembast/sembast.dart';
 import 'package:unicons/unicons.dart';
 
 class BottomView extends StatefulWidget {
@@ -107,11 +103,11 @@ class DogWidget extends StatefulWidget {
 }
 
 class _DogWidgetState extends State<DogWidget> with AfterLayoutMixin {
-
   @override
-  void initState() { 
+  void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     // widget.model.setContext(context);
@@ -184,33 +180,42 @@ class _DogWidgetState extends State<DogWidget> with AfterLayoutMixin {
           //             }),
           //       ),
 
-          // StreamBuilder<List<RecordSnapshot>>(
-          // stream: UserDao().asyncFunction(),
-          // builder: (context, snapshot) {
-          //   if (!snapshot.hasData) {
-          //     return const Center(
-          //       child: CircularProgressIndicator(),
-          //     );
-          //   }
-          //   var list = snapshot.data!;
-          //   var count = list.length;
-          //   return ListView.builder(
-          //     itemBuilder: (_, index) {
-          //       var record = list[index];
-          //       return ListTile(
-          //         title: Text("data"),
-          //         onTap: () async {
-          //           // await goToRecordHomeScreen(
-          //           //     context, widget.data, record.key);
-          //         },
-          //       );
-          //     },
-          //     itemCount: count,
-          //   );
-          // })
+          StreamBuilder<List<Datum>>(
+              stream: UserDao().onNotes(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                var list = snapshot.data!;
+                var count = list.length;
+                return Expanded(
+                  child: ListView.builder(
+                    itemBuilder: (_, index) {
+                      var record = list[index];
+                      return ListTile(
+                        title: Text(record.firstName,
+                            style: context.textTheme.bodySmall),
+                        onTap: () async {
+                          // await goToRecordHomeScreen(
+                          //     context, widget.data, record.key);
+                        },
+                      );
+                    },
+                    itemCount: count,
+                  ),
+                );
+              })
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // UserDao().dispose();
+    super.dispose();
   }
 
   final snackBar2 = SnackBar(

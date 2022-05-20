@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:buildbase/core/base/locator.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sembast/sembast.dart';
@@ -21,6 +22,7 @@ class AppDatabase {
 
   // Database object accessor
   Future<Database> get database async {
+
     // If completer is null, AppDatabaseClass is newly instantiated, so database is not yet opened
     if (_dbOpenCompleter == null) {
       _dbOpenCompleter = Completer();
@@ -43,5 +45,30 @@ class AppDatabase {
     print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^Database OPEN");
     // Any code awaiting the Completer's future will now start executing
     _dbOpenCompleter!.complete(database);
+  }
+}
+ 
+
+
+
+
+
+/**
+ * Initializing the sembast database
+ * Called in the main() after setuplocator called
+ */
+ 
+ class Init {
+
+  static Future initialize() async {
+    await _initSembast();
+  }
+
+  static Future _initSembast() async {
+    final appDir = await getApplicationDocumentsDirectory();
+    await appDir.create(recursive: true);
+    final databasePath = join(appDir.path, 'BuildbaseDB.db');
+    final database = await databaseFactoryIo.openDatabase(databasePath);
+    locator.registerSingleton<Database>(database);
   }
 }

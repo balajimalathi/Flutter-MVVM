@@ -4,7 +4,7 @@ extension StringLocalization on String? {
   String? get isValidEmail =>
       this!.contains(RegExp(ApplicationConstants.EMAIL_REGEX))
           ? null
-          : "Email geçerli değil.";
+          : "Email is not valid.";
 }
 
 extension ImagePathExtension on String {

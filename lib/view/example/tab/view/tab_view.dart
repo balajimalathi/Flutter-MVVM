@@ -2,6 +2,7 @@ import 'package:after_layout/after_layout.dart';
 import 'package:buildbase/core/base/view/base_view.dart';
 import 'package:buildbase/core/constants/enums/connectivity.dart';
 import 'package:buildbase/core/constants/enums/viewstate.dart';
+import 'package:buildbase/core/extensions/context_extension.dart';
 import 'package:buildbase/product/utils/utils.dart';
 import 'package:buildbase/view/example/tab/view_model/view_model.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,6 @@ class _TabViewState extends State<TabView> {
           appBar: AppBar(
             title: Text('Fixed Tabs'),
             automaticallyImplyLeading: false,
-            backgroundColor: Color(0xff5808e5),
             bottom: TabBar(
               indicatorColor: Colors.white,
               tabs: [
@@ -93,7 +93,7 @@ class _DogWidgetState extends State<DogWidget> with AfterLayoutMixin {
         spacer(10),
         Text(
           "Model State",
-          style: TextStyle(fontSize: 24),
+          style: context.textTheme.bodyText2,
         ),
         spacer(10),
         widget.model.state == ViewState.Idle

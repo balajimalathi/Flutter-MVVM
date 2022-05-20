@@ -1,5 +1,4 @@
 import 'package:buildbase/core/base/model/base_model.dart';
-import 'package:buildbase/core/constants/enums/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

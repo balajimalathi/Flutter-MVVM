@@ -6,7 +6,6 @@ import 'package:buildbase/core/init/cache/locale_manager.dart';
 import 'package:buildbase/core/navigation/navigation_service.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
 
 class BaseModel extends ChangeNotifier {
   ViewState _state = ViewState.Idle;
@@ -56,6 +55,7 @@ class BaseModel extends ChangeNotifier {
     notifyListeners();
   }
 
+/// Triggers when app opens
   Future<void> refreshNetwork() async {
     var result = await Connectivity().checkConnectivity();
 

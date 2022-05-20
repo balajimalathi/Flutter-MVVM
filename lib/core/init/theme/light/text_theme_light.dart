@@ -9,6 +9,8 @@ class TextThemeLight  {
 
   TextThemeLight._init();
 
+
+
   final headline1 =
       TextStyle(fontSize: 93, fontWeight: FontWeight.w300, letterSpacing: -1.5);
   final headline2 =
@@ -18,8 +20,7 @@ class TextThemeLight  {
       TextStyle(fontSize: 33, fontWeight: FontWeight.w400, letterSpacing: 0.25);
   final headline5 = TextStyle(fontSize: 23, fontWeight: FontWeight.w400);
   final headline6 =
-      TextStyle(fontSize: 19, fontWeight: FontWeight.w500, letterSpacing: 0.15);
-
+      TextStyle(fontSize: 19, fontWeight: FontWeight.w500, letterSpacing: 0.15); 
   final overline =
       TextStyle(fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5);
 }
