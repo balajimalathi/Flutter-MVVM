@@ -19,3 +19,14 @@ Then remove the `change_app_package_name` package from `pubspec.yaml`
 rd /s /q ".git"
 ```
 4. Configure Dart SDK path
+
+# Thinks to focus in this architecture
+
+- [x] Local Database
+- [x] Internet Checker
+- [x] Streams - Local Database
+- [ ] Validate internet when API call
+- [ ] Solid principles
+- [ ] API exceptions
+- [ ] Split up product based files and constants from core folder
+- [ ] Elaborate Utils folder in Product
