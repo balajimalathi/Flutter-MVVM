@@ -35,3 +35,8 @@ rd /s /q ".git"
 - [ ] API exceptions
 - [ ] Split up product based files and constants from core folder
 - [ ] Elaborate Utils folder in Product
+
+
+## License
+
+MIT
