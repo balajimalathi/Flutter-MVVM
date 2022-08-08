@@ -1,4 +1,3 @@
-
 import 'package:buildbase/core/constants/navigation/navigation_constants.dart';
 import 'package:buildbase/core/init/cache/locale_manager.dart';
 import 'package:buildbase/core/init/database/db_provider.dart';
@@ -18,25 +17,38 @@ Future<void> main() async {
 
   //Setting up SharedPreferences
   await LocaleManager.preferencesInit();
-  
+
   //DI - GETIT
   setupLocator();
 
   //Database initialization - DI
-  Init.initialize(); 
-  
+  Init.initialize();
+
   runApp(MarkApp());
 }
 
+/*
+
+MultiProvider
+- All the base providers such as ThemeNotifier and Orientation providers will be added here
+
+LayoutBuilder & OrientationBuilders
+- These are responsible for screen sizes and orientations
+
+SizeConfig
+- To know screen size and orientation which was retrieved from LayoutBuilder and OrientationBuilder
+
+*/
+
 class MarkApp extends StatelessWidget {
-  const MarkApp({Key? key}) : super(key: key); 
+  const MarkApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [...ApplicationProvider.instance.dependItems],
         child: LayoutBuilder(builder: (context, constraint) {
           return OrientationBuilder(builder: (context, orientation) {
-            SizeConfig().init(constraint, orientation); 
+            SizeConfig().init(constraint, orientation);
             return MaterialApp(
               // locale: context.locale,
               // localizationsDelegates: context.localizationDelegates,
@@ -52,6 +64,7 @@ class MarkApp extends StatelessWidget {
   }
 }
 
+// Certificate pinning
 // //TODO: Change the Url Before Release
 // class MyHttpOverrides extends HttpOverrides {
 //   @override

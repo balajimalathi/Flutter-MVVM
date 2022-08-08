@@ -2,10 +2,10 @@ import 'package:buildbase/core/base/model/base_model.dart';
 import 'package:buildbase/core/constants/enums/viewstate.dart';
 import 'package:buildbase/view/example/bottom_nav/model/user_model.dart';
 import 'package:buildbase/view/example/database/user_dao.dart';
-import 'package:flutter/material.dart';
 import 'package:buildbase/view/example/service/service.dart';
+import 'package:flutter/material.dart';
 
-class BottomViewModel extends BaseModel with BaseViewModel{
+class BottomViewModel extends BaseModel with BaseViewModel {
   void setContext(BuildContext context) => this.context = context;
   late Service _service;
   UserDao _userDao = UserDao();
@@ -86,8 +86,8 @@ class BottomViewModel extends BaseModel with BaseViewModel{
   final snackBar1 = const SnackBar(content: const Text('No Internet'));
 
   Future getUserDetails() async {
-    setState(ViewState.Busy); 
-    await _service.getAllUsers().then((value) { 
+    setState(ViewState.Busy);
+    await _service.getAllUsers().then((value) {
       value.fold((l) => exception = l, (r) => userModel = r);
     });
     setState(ViewState.Idle);
