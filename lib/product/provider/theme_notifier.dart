@@ -1,5 +1,5 @@
 import 'package:buildbase/core/constants/enums/app_theme_enums.dart';
-import 'package:buildbase/core/init/cache/locale_manager.dart';
+import 'package:buildbase/core/cache/local_manager.dart';
 import 'package:buildbase/product/utils/color.dart';
 import 'package:flutter/material.dart';
 

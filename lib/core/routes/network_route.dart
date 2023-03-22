@@ -1,8 +1,6 @@
-class NavigationConstants {
-
+class NetworkRoutes {
   static const root = '/';
   static const loginView = "/login";
   static const landingView = "/landing";
-
-  static const example = '/example';
+  static const userView = "/api/users?page=2";
 }

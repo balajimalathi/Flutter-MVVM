@@ -1,13 +1,13 @@
 import 'package:buildbase/core/constants/navigation/navigation_constants.dart';
-import 'package:buildbase/core/init/cache/locale_manager.dart';
-import 'package:buildbase/core/init/database/db_provider.dart';
+import 'package:buildbase/core/cache/local_manager.dart';
+import 'package:buildbase/core/database/db_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'core/base/locator.dart';
-import 'core/init/notifier/provider_list.dart';
-import 'core/init/notifier/theme_notifier.dart';
-import 'core/init/responsive/size_config.dart';
+import 'locator.dart';
+import 'core/notifier/provider_list.dart';
+import 'core/notifier/theme_notifier.dart';
+import 'core/responsive/size_config.dart';
 import 'core/navigation/navigation_route.dart';
 import 'core/navigation/navigation_service.dart';
 
@@ -16,7 +16,7 @@ Future<void> main() async {
   // HttpOverrides.global = MyHttpOverrides();
 
   //Setting up SharedPreferences
-  await LocaleManager.preferencesInit();
+  await LocalManager.preferencesInit();
 
   //DI - GETIT
   setupLocator();
@@ -53,7 +53,7 @@ class MarkApp extends StatelessWidget {
               // locale: context.locale,
               // localizationsDelegates: context.localizationDelegates,
               // supportedLocales: context.supportedLocales,
-              initialRoute: NavigationConstants.ROOT,
+              initialRoute: NavigationConstants.root,
               onGenerateRoute: NavigationRoute.instance.generateRoute,
               theme: Provider.of<ThemeNotifier>(context).currentTheme,
               navigatorKey: NavigationService.instance.navigatorKey,
