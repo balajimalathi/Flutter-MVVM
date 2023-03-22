@@ -25,7 +25,7 @@ Future<void> main() async {
   //Database initialization - DI
   Init.initialize();
 
-  runApp(MarkApp());
+  runApp(const MarkApp());
 }
 
 /*

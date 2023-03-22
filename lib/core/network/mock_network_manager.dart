@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:colorize/colorize.dart';
 import 'package:dio/dio.dart';
-import 'interceptors/logInterceptor.dart';
+import 'interceptors/log_interceptor.dart';
 
 class MockNetworkManager {
   static Dio createDio() {

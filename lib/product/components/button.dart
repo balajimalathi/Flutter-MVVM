@@ -14,7 +14,7 @@ class NormalButton extends StatelessWidget {
     return ElevatedButton(
       // padding: EdgeInsets.all(15.0),
       // elevation: 10,
-      onPressed: this.onPressed,
+      onPressed: onPressed,
       child: child,
     );
   }

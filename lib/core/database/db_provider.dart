@@ -42,7 +42,6 @@ class AppDatabase {
     final dbPath = join(appDocumentDir.path, 'BuildbaseDB.db');
 
     final database = await databaseFactoryIo.openDatabase(dbPath);
-    print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^Database OPEN");
     // Any code awaiting the Completer's future will now start executing
     _dbOpenCompleter!.complete(database);
   }

@@ -8,7 +8,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 
 class BaseModel extends ChangeNotifier {
-  ViewState _state = ViewState.Idle;
+  ViewState _state = ViewState.idle;
 
   ViewState get state => _state;
 
@@ -17,7 +17,7 @@ class BaseModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  NetworkStatus _connectivityStatus = NetworkStatus.Offline;
+  NetworkStatus _connectivityStatus = NetworkStatus.offline;
 
   NetworkStatus get network => _connectivityStatus;
 
@@ -36,17 +36,17 @@ class BaseModel extends ChangeNotifier {
   NetworkStatus _getStatusFromResult(ConnectivityResult result) {
     switch (result) {
       case ConnectivityResult.mobile:
-        setNetwork(NetworkStatus.Mobile);
-        return NetworkStatus.Mobile;
+        setNetwork(NetworkStatus.mobile);
+        return NetworkStatus.mobile;
       case ConnectivityResult.wifi:
-        setNetwork(NetworkStatus.WiFi);
-        return NetworkStatus.WiFi;
+        setNetwork(NetworkStatus.wifi);
+        return NetworkStatus.wifi;
       case ConnectivityResult.none:
-        setNetwork(NetworkStatus.Offline);
-        return NetworkStatus.Offline;
+        setNetwork(NetworkStatus.offline);
+        return NetworkStatus.offline;
       default:
-        setNetwork(NetworkStatus.Offline);
-        return NetworkStatus.Offline;
+        setNetwork(NetworkStatus.offline);
+        return NetworkStatus.offline;
     }
   }
 
@@ -61,16 +61,16 @@ class BaseModel extends ChangeNotifier {
 
     switch (result) {
       case ConnectivityResult.mobile:
-        setNetwork(NetworkStatus.Mobile);
+        setNetwork(NetworkStatus.mobile);
         break;
       case ConnectivityResult.wifi:
-        setNetwork(NetworkStatus.WiFi);
+        setNetwork(NetworkStatus.wifi);
         break;
       case ConnectivityResult.none:
-        setNetwork(NetworkStatus.Offline);
+        setNetwork(NetworkStatus.offline);
         break;
       default:
-        setNetwork(NetworkStatus.Offline);
+        setNetwork(NetworkStatus.offline);
     }
   }
 }

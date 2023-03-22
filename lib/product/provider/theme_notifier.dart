@@ -1,6 +1,3 @@
-import 'package:buildbase/core/constants/enums/app_theme_enums.dart';
-import 'package:buildbase/core/cache/local_manager.dart';
-import 'package:buildbase/product/utils/color.dart';
 import 'package:flutter/material.dart';
 
 ThemeData light = ThemeData(
@@ -8,14 +5,14 @@ ThemeData light = ThemeData(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.light,
     primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: scaffoldBackground);
+    scaffoldBackgroundColor: const Color(0xFFF5F5F9));
 
 ThemeData dark = ThemeData(
     fontFamily: "RedHatDisplay",
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: scaffoldBackground);
+    scaffoldBackgroundColor: const Color(0xFFF5F5F9));
 
 // class ThemeNotifier extends ChangeNotifier {
 //   final String key = "theme";

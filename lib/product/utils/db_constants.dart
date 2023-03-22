@@ -1,3 +1,3 @@
 class DBConstants {
-  static const USER = "user";
+  static const user = "user";
 }

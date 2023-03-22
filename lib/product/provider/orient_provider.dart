@@ -10,13 +10,8 @@ class OrientationProvider extends ChangeNotifier{
     this.isTab = isTab;
     this.isPortrait = isPortrait;
 
-    print(this.isTab.toString()+ "  " +this.isPortrait.toString());
+    print("${this.isTab}  ${this.isPortrait}");
     notifyListeners();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   @override

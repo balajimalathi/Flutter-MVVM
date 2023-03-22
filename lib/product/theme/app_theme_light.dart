@@ -9,6 +9,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
 
   AppThemeLight._init();
 
+  @override
   ThemeData get theme => ThemeData(
         colorScheme: _appColorScheme,
         primaryColor: _appColorScheme.primary,

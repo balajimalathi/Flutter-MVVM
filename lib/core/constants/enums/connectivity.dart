@@ -1,1 +1,1 @@
-enum NetworkStatus { Mobile, WiFi, Offline}
+enum NetworkStatus { mobile, wifi, offline}

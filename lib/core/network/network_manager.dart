@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:buildbase/core/cache/local_manager.dart';
 import 'package:buildbase/core/constants/enums/preferences_keys_enum.dart';
 import 'package:buildbase/core/navigation/navigation_service.dart';
-import 'package:buildbase/core/network/interceptors/logInterceptor.dart';
+import 'package:buildbase/core/network/interceptors/log_interceptor.dart';
 
 import '../../product/navigation/navigation_constants.dart';
 import '../constants/app/app_constants.dart';
