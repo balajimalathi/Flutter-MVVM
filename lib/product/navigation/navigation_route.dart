@@ -1,8 +1,9 @@
-import 'package:buildbase/core/constants/navigation/navigation_constants.dart';
+import 'package:buildbase/view/main_content.dart';
 import 'package:buildbase/view/splashscreen/spash_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../view/example/example_view.dart';
+import 'navigation_constants.dart';
 
 class NavigationRoute {
   static final NavigationRoute _instance = NavigationRoute._init();
@@ -16,6 +17,8 @@ class NavigationRoute {
         return navigate(const SplashScreen(), args);
       case NavigationConstants.example:
         return navigate(const ExampleScreen(), args);
+      case NavigationConstants.mainContentView:
+        return navigate(const MainContentView(), args);
       default:
         return MaterialPageRoute(
           builder: (context) => const NotFoundNavigationWidget(),
@@ -28,11 +31,6 @@ class NavigationRoute {
       settings: route,
       builder: (context) => widget,
     );
-  }
-
-  MaterialPageRoute navigateWithData(Widget widget, dynamic data) {
-    return MaterialPageRoute(
-        builder: (context) => widget, settings: RouteSettings(arguments: data));
   }
 }
 

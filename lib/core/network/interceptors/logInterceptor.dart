@@ -58,12 +58,12 @@ class LoggingInterceptors extends Interceptor {
   }
 
   @override
-  void onError(DioError dioError, ErrorInterceptorHandler handler) {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     errorPrinter(null);
-    errorPrinter("${dioError.message} ${dioError.requestOptions.path}");
-    errorPrinter("${dioError.response}");
+    errorPrinter("${err.message} ${err.requestOptions.path}");
+    errorPrinter("${err.response}");
     errorPrinter("====== End error ======");
     errorPrinter(null);
-    return handler.resolve(dioError.response!); //continue
+    return handler.resolve(err.response!); //continue
   }
 }

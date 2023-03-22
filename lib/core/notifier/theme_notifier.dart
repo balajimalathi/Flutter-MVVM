@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../product/theme/app_theme_light.dart';
 import '../constants/enums/app_theme_enums.dart';
-import '../theme/app_theme_light.dart';
 import 'IThemeNotifier.dart';
 
 class ThemeNotifier extends ChangeNotifier implements IThemeNotifier {

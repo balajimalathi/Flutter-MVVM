@@ -1,9 +1,7 @@
-import 'package:buildbase/core/constants/navigation/navigation_constants.dart';
 import 'package:buildbase/core/navigation/navigation_service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import '../../product/navigation/navigation_constants.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
         body: Center(
       child: ElevatedButton(
         onPressed: ()=> NavigationService.instance.navigateToPage(NavigationConstants.example),
-          child: Text('Splash screen')),
+          child: const Text('Splash screen')),
     ));
   }
 }

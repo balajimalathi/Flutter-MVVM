@@ -1,6 +1,7 @@
-import 'package:buildbase/core/constants/navigation/navigation_constants.dart';
 import 'package:buildbase/core/cache/local_manager.dart';
 import 'package:buildbase/core/database/db_provider.dart';
+import 'package:buildbase/product/navigation/navigation_constants.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +9,7 @@ import 'locator.dart';
 import 'core/notifier/provider_list.dart';
 import 'core/notifier/theme_notifier.dart';
 import 'core/responsive/size_config.dart';
-import 'core/navigation/navigation_route.dart';
+import 'product/navigation/navigation_route.dart';
 import 'core/navigation/navigation_service.dart';
 
 Future<void> main() async {
@@ -50,6 +51,7 @@ class MarkApp extends StatelessWidget {
           return OrientationBuilder(builder: (context, orientation) {
             SizeConfig().init(constraint, orientation);
             return MaterialApp(
+              scrollBehavior: AppScrollBehavior(),
               // locale: context.locale,
               // localizationsDelegates: context.localizationDelegates,
               // supportedLocales: context.supportedLocales,
@@ -64,6 +66,15 @@ class MarkApp extends StatelessWidget {
   }
 }
 
+
+class AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.trackpad,
+  };
+}
 // Certificate pinning
 // //TODO: Change the Url Before Release
 // class MyHttpOverrides extends HttpOverrides {

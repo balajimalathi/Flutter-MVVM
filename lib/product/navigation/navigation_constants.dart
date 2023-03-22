@@ -5,4 +5,5 @@ class NavigationConstants {
   static const landingView = "/landing";
 
   static const example = '/example';
+  static const mainContentView = '/main-content';
 }

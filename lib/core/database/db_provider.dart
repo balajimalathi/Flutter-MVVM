@@ -53,10 +53,8 @@ class AppDatabase {
 
 
 
-/**
- * Initializing the sembast database
- * Called in the main() after setuplocator called
- */
+/// Initializing the sembast database
+/// Called in the main() after setuplocator called
  
  class Init {
 
