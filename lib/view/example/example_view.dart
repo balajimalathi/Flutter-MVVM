@@ -72,7 +72,7 @@ class ExampleScreen extends StatelessWidget {
                           onPressed: () {
                             if (model.formKey.currentState?.saveAndValidate() ??
                                 false) {
-                              NavigationService.instance.navigateToPage(
+                              NavigationService.instance.pushTo(
                                   NavigationConstants.mainContentView);
                               debugPrint(
                                   model.formKey.currentState?.value.toString());

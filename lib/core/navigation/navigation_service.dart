@@ -2,6 +2,15 @@ import 'package:flutter/cupertino.dart';
 
 import 'i_navigation_service.dart';
 
+/// [NavigationService] ease the navigation in the app, by providing the basic
+/// and regularly using methods of navigation
+///
+/// Example:
+///
+/// ```dart
+/// NavigationService.instance.pushTo(Widget());
+/// ```
+///
 class NavigationService implements INavigationService {
   static final NavigationService _instance = NavigationService._init();
 
@@ -12,24 +21,24 @@ class NavigationService implements INavigationService {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   @override
-  Future<dynamic> navigateToPage(String path, {Object? data}) async {
+  Future<dynamic> pushTo(String path, {Object? data}) async {
     await navigatorKey.currentState?.pushNamed(path, arguments: data);
   }
 
   @override
-  Future<dynamic> navigateToPageReplaced(String path, {Object? data}) async {
+  Future<dynamic> pushAndReplace(String path, {Object? data}) async {
     await navigatorKey.currentState
         ?.pushReplacementNamed(path, arguments: data);
   }
 
   @override
-  Future<void> navigateToPageClear(String path, {Object? data}) async {
+  Future<void> pushAndClear(String path, {Object? data}) async {
     await navigatorKey.currentState
         ?.pushNamedAndRemoveUntil(path, (Route<dynamic> route) => false, arguments: data);
   }
 
   @override
-  Future<void>? popToPageReplaced(String path, {Object? data}) async {
+  Future<void>? popAndReplace(String path, {Object? data}) async {
     await navigatorKey.currentState?.popAndPushNamed(path, arguments: data);
   }
 }

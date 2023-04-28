@@ -1,9 +1,9 @@
 abstract class INavigationService {
-  Future<void>? navigateToPage(String path, {Object data});
+  Future<void>? pushTo(String path, {Object data});
 
-  Future<void>? navigateToPageReplaced(String path, {Object data});
+  Future<void>? pushAndReplace(String path, {Object data});
 
-  Future<void>? popToPageReplaced(String path, {Object data});
+  Future<void>? popAndReplace(String path, {Object data});
 
-  Future<void> navigateToPageClear(String path, {Object data});
+  Future<void> pushAndClear(String path, {Object data});
 }

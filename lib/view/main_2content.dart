@@ -1,63 +1,50 @@
+import 'package:buildbase/core/extensions/string_extension.dart';
 import 'package:buildbase/core/extensions/widget_extension.dart';
+import 'package:buildbase/product/components/spacing_column.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_ui/responsive_ui.dart';
 import 'package:unicons/unicons.dart';
 
 import '../core/responsive/responsiver.dart';
-import 'main_2content.dart';
 import 'menu_controller.dart';
 
 /// Created by Balaji Malathi on 22-03-2023 at 21:56.
-class MainContentView extends StatelessWidget {
-  const MainContentView({Key? key}) : super(key: key);
+class MainContent2View extends StatelessWidget {
+  const MainContent2View({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         key: context.read<MenuAppController>().scaffoldKey,
-        appBar: AppBar(
-          title: const Text('Main Content'),
-          leading:
-              Responsiver.isDesktop(context) || Responsiver.isTablet(context)
-                  ? const SizedBox.shrink()
-                  : null,
-          leadingWidth:
-              Responsiver.isDesktop(context) || Responsiver.isTablet(context)
-                  ? 0.0
-                  : 56.0,
-          actions: [
-            IconButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MainContent2View()));
-            }, icon: const Icon(UniconsLine.edit))
-          ],
-        ),
         //context.read<MenuAppController>().controlMenu,
-        drawer: const SideDrawer(),
+        // drawer: const SideDrawer(),
         body: Row(
           children: [
-            Responsiver.isDesktop(context) || Responsiver.isTablet(context)
-                ? const Expanded(flex: 2, child: SideDrawer())
-                : const SizedBox.shrink(),
-            const Expanded(
+            Expanded(
+              flex: 2,
+                child: SideDrawer()),
+            Expanded(
               flex: 10,
-              child: SingleChildScrollView(
-                child: Responsive(
+                child: Column(
+              children: [
+                AppBar(),
+                Expanded(child:
+                ColumnSpacing(
                   children: [
-                    Div(
-                        divison: Division(
-                          colXS: 12,
-                          colS: 12,
-                          colM: 12,
-                          colL: 12,
-                          colXL: 12,
-                        ),
-                        child: Placeholder())
+                    FormBuilderTextField(name: "name"),
+                    FormBuilderTextField(name: "name"),
+                    FormBuilderTextField(name: "name"),
+                    FormBuilderTextField(name: "name"),
+                    FormBuilderTextField(name: "name"),
+                    FormBuilderTextField(name: "name"),
+                    FormBuilderTextField(name: "name"),
                   ],
-                ),
-              ),
-            ),
+                ))
+              ],
+            ))
           ],
         ));
   }

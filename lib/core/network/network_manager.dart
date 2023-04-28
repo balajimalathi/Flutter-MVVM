@@ -105,7 +105,7 @@ class NetworkManager {
 
             /// Navigate the user to Login screen
             NavigationService.instance
-                .navigateToPageClear(NavigationConstants.root);
+                .pushAndClear(NavigationConstants.root);
           }
 
           return handler.next(e);

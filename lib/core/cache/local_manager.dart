@@ -1,6 +1,26 @@
 import 'package:buildbase/core/constants/enums/preferences_keys_enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// [LocalManager] is used to handle the [SharedPreferences]
+/// In order to use [SharedPreferences] we have to use like
+///
+/// ```dart
+/// final SharedPreferences prefs = await SharedPreferences.getInstance();
+/// await prefs.setInt('counter', 10);
+/// ```
+/// This can be annoying when we don't have to use await for the
+/// methods, which use [SharedPreferences]
+///
+/// By initialized the [LocalManager] in the [runApp] method,
+/// we can avoid using async and we can use like,
+///
+/// ``` dart
+/// int counter = LocalManger.instance.getString("counter");
+/// ```
+///
+/// This method will be handy when we are implementing the encrypting and
+/// decrypting the values, we are willing to save in the [SharedPreferences]
+///
 class LocalManager {
   static final LocalManager instance = LocalManager._init();
 

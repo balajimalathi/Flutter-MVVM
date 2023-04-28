@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         body: Center(
       child: ElevatedButton(
-        onPressed: ()=> NavigationService.instance.navigateToPage(NavigationConstants.example),
+        onPressed: ()=> NavigationService.instance.pushTo(NavigationConstants.example),
           child: const Text('Splash screen')),
     ));
   }
