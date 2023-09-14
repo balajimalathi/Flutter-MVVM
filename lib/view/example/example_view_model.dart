@@ -1,22 +1,22 @@
 /// Created by Balaji Malathi on 22-03-2023 at 15:28.
-import 'package:buildbase/core/constants/enums/viewstate.dart';
+import 'package:buildbase/core/helpers/future_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import '../../core/base/base_model.dart';
-import 'example.service.dart';
+import 'example.impl.dart';
 
 class ExampleViewModel extends BaseModel with BaseViewModel {
   @override
   void setContext(BuildContext context) => this.context = context;
 
   //region Variable Initialization
-  late ExampleService _service;
-  final formKey = GlobalKey<FormBuilderState>();
+  late ExampleRepository _repo;
+
   //endregion
   @override
   void init() {
-    _service = ExampleService();
+    _repo = ExampleRepositoryImpl();
   }
 
   String _sampleString = "";
@@ -28,7 +28,7 @@ class ExampleViewModel extends BaseModel with BaseViewModel {
     notifyListeners();
   }
 
-  Future datav () async {
-    setState(ViewState.idle);
+  Future datav() async {
+    await _repo.moveForward(1).fold((left) => null, (right) => null);
   }
 }

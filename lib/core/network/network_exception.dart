@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 /// Created by Balaji Malathi on 29-09-2022 at 16:21.
 
-class ApiBaseHelper {
+mixin class ApiBaseHelper {
   static String getDioException(e) {
     if (e is Exception) {
       try {

@@ -1,4 +1,4 @@
-import 'package:buildbase/core/constants/enums/preferences_keys_enum.dart';
+import 'package:buildbase/core/constants/enums/pref.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// [LocalManager] is used to handle the [SharedPreferences]
@@ -43,35 +43,35 @@ class LocalManager {
   Future<void> clearAllSaveFirst() async {
     await _preferences!.clear();
     if (_preferences != null) {
-      await setBoolValue(PreferencesKeys.isFirstApp, true);
+      await setBool(Pref.isFirstApp, true);
     }
   }
 
-  Future<void> setStringValue(PreferencesKeys key, String value) async {
+  Future<void> setString(Pref key, String value) async {
     await _preferences!.setString(key.toString(), value);
   }
 
-  Future<void> setBoolValue(PreferencesKeys key, bool value) async {
+  Future<void> setBool(Pref key, bool value) async {
     await _preferences!.setBool(key.toString(), value);
   }
 
-  Future<void> setModelValue(PreferencesKeys key, dynamic value) async {
+  Future<void> setModel(Pref key, dynamic value) async {
     await _preferences!.setString(key.toString(), value.toString());
   }
 
   Future<void> setRetryCount(int value) async {
-    await _preferences!.setInt(PreferencesKeys.retryCount.toString(), value);
+    await _preferences!.setInt(Pref.retryCount.toString(), value);
   }
 
-  String getModelValue(PreferencesKeys key) =>
+  String getModel(Pref key) =>
       _preferences!.getString(key.toString()) ?? "";
 
-  String getStringValue(PreferencesKeys key) =>
+  String getString(Pref key) =>
       _preferences!.getString(key.toString()) ?? "";
 
-  bool getBoolValue(PreferencesKeys key) =>
+  bool getBool(Pref key) =>
       _preferences!.getBool(key.toString()) ?? false;
 
   int getRetryCount() =>
-      _preferences!.getInt(PreferencesKeys.retryCount.toString()) ?? 1;
+      _preferences!.getInt(Pref.retryCount.toString()) ?? 1;
 }

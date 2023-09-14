@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../product/theme/app_theme_light.dart';
-import '../constants/enums/app_theme_enums.dart';
-import 'i_theme_notifier.dart';
+import '../constants/enums/app_theme.dart';
 
 class ThemeNotifier extends ChangeNotifier implements IThemeNotifier {
   ThemeData _currentTheme = AppThemeLight.instance.theme;
@@ -12,6 +11,7 @@ class ThemeNotifier extends ChangeNotifier implements IThemeNotifier {
   /// Application theme enum.
   /// Default value is [AppThemes.light]
   AppThemes get currentThemeEnum => _currentThemeEnum;
+
   ThemeData get currentTheme => _currentTheme;
 
   @override
@@ -35,4 +35,8 @@ class ThemeNotifier extends ChangeNotifier implements IThemeNotifier {
     }
     notifyListeners();
   }
+}
+
+abstract class IThemeNotifier {
+  void changeValue(AppThemes theme);
 }

@@ -1,7 +1,7 @@
 import 'package:buildbase/core/extensions/context_extension.dart';
 import 'package:buildbase/core/extensions/widget_extension.dart';
-import 'package:buildbase/core/navigation/navigation_service.dart';
-import 'package:buildbase/product/navigation/navigation_constants.dart';
+import 'package:buildbase/core/navigation/router_service.dart';
+import 'package:buildbase/product/navigation/route_constant.dart';
 import 'package:buildbase/view/example/example_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -9,8 +9,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:responsive_ui/responsive_ui.dart';
 
 import '../../core/base/base_view.dart';
-import '../../product/components/field_builder.dart';
-import '../../product/components/spacing_column.dart';
+import '../../product/components/field_builder_widget.dart';
+import '../../product/components/column_spacing_widget.dart';
 
 /// Created by Balaji Malathi on 22-03-2023 at 15:27.
 class ExampleScreen extends StatelessWidget {
@@ -72,8 +72,8 @@ class ExampleScreen extends StatelessWidget {
                           onPressed: () {
                             if (model.formKey.currentState?.saveAndValidate() ??
                                 false) {
-                              NavigationService.instance.pushTo(
-                                  NavigationConstants.mainContentView);
+                              RouterService.instance.pushTo(
+                                  RouterConstant.mainContentView);
                               debugPrint(
                                   model.formKey.currentState?.value.toString());
                             } else {
@@ -103,17 +103,17 @@ class ExampleScreen extends StatelessWidget {
                   height: context.height,
                   color: Colors.lightGreenAccent,
                   child: PageView(
-                    children: [
+                    children: const [
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Text("data"),
+                          Text("data"),
                           Row(
                             children: [
-                              const CircleAvatar(),
+                              CircleAvatar(),
                               Column(
-                                children: const [
+                                children: [
                                   Text("data"),
                                   Text("data"),
                                 ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constants/app/app_constants.dart';
+import '../../config.dart';
 import 'app_theme.dart';
 import 'light/light_theme_interface.dart';
 
@@ -15,7 +15,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
         primaryColor: _appColorScheme.primary,
         textTheme: buildTextTheme(),
         scaffoldBackgroundColor: const Color(0xFFFCFCFC),
-        fontFamily: ApplicationConstants.fontFamily,
+        fontFamily: Config.fontFamily,
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           isDense: true,

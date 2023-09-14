@@ -1,4 +1,4 @@
-class NavigationConstants {
+class RouterConstant {
 
   static const root = '/';
   static const loginView = "/login";

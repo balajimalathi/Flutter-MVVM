@@ -2,11 +2,12 @@ import 'dart:async';
 
 import 'package:buildbase/core/base/base_view.dart';
 import 'package:buildbase/core/constants/enums/connectivity.dart';
-import 'package:buildbase/core/constants/enums/viewstate.dart';
+import 'package:buildbase/core/constants/enums/view_state.dart';
 import 'package:buildbase/core/cache/local_manager.dart';
-import 'package:buildbase/core/navigation/navigation_service.dart';
+import 'package:buildbase/core/navigation/router_service.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 /// [BaseModel] extends with ViewModel in the [BaseView]
 ///
@@ -91,18 +92,20 @@ class BaseModel extends ChangeNotifier {
 }
 
 /// [BaseViewModel] is a mixin class to reuse the variables and functions on ViewModel to extend the
-/// [BuildContext], [LocalManager] and [NavigationService], so we do not need to
+/// [BuildContext], [LocalManager] and [RouterService], so we do not need to
 /// initialize to use, it will be auto initialized when they are invoked in the ViewModel
-abstract class BaseViewModel {
+abstract mixin class BaseViewModel {
 
   /// [BuildContext] is used to identify the context of the page, it will be utilized in the ViewModel
   /// to handle the [Navigator] or [BottomSheet] or [Dialog]
   ///
   late BuildContext context;
 
+
   LocalManager localManager = LocalManager.instance;
 
-  NavigationService navigationService = NavigationService.instance;
+
+  RouterService navigationService = RouterService.instance;
 
   /// Function used to initialize the [BuildContext] for the ViewModel
   ///
@@ -111,4 +114,7 @@ abstract class BaseViewModel {
   /// [init] will be called first when the ViewModel is declared
   ///
   void init() {}
+
+  final formKey = GlobalKey<FormBuilderState>();
+
 }

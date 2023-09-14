@@ -2,18 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-extension ImagePathExtension on String {
-  String get toSVG => "assets/svg/$this.svg";
-}
-
-extension CostExtension on String {
-  String get toAmount => "₹$this";
-}
-
-extension PercentageExtention on String {
-  String get toPercentage => "$this%";
-}
-
 extension Ex on double {
   double toPrecision(int n) => double.parse(toStringAsFixed(n));
 }
@@ -25,12 +13,22 @@ extension Json on dynamic {
     return prettyprint;
   }
 }
+
 extension StringExtension on String {
   String capitalize() {
     return "${this[0].toUpperCase()}${substring(1)}";
   }
+
+  String get toPercentage => "$this%";
+
+  String get toAmount => "₹$this";
+
+  bool equals(String nn) {
+    return (nn == this);
+  }
 }
-extension Colour on String {
+
+extension ColourExtension on String {
   Color get toColor {
     var hexColor = this;
     hexColor = hexColor.replaceAll("#", "");

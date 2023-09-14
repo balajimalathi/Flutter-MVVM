@@ -1,21 +1,21 @@
+import 'package:buildbase/config.dart';
 import 'package:flutter/material.dart';
 
 ThemeData light = ThemeData(
-    fontFamily: "RedHatDisplay",
+    fontFamily: Config.fontFamily,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.light,
     primarySwatch: Colors.blue,
     scaffoldBackgroundColor: const Color(0xFFF5F5F9));
 
 ThemeData dark = ThemeData(
-    fontFamily: "RedHatDisplay",
+    fontFamily: Config.fontFamily,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
     scaffoldBackgroundColor: const Color(0xFFF5F5F9));
 
 // class ThemeNotifier extends ChangeNotifier {
-//   final String key = "theme";
 //   bool? _darkTheme;
 //   bool? get darkTheme => _darkTheme;
 //
@@ -31,12 +31,12 @@ ThemeData dark = ThemeData(
 //   }
 //
 //   _loadFromPrefs() async {
-//     _darkTheme = _pref!.getBool(key) ?? true;
+//     _darkTheme = LocalManager.instance.getBool(key) ?? true;
 //     notifyListeners();
 //   }
 //
 //   _saveToPrefs()async {
-//     LocaleManager.instance.setStringValue(AppThemes.LIGHT, "4321");
+//     LocalManager.instance.setString(AppThemes.LIGHT, "4321");
 //     _pref!.setBool(key, _darkTheme!);
 //   }
 // }

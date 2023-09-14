@@ -1,35 +1,31 @@
-import 'package:buildbase/core/navigation/navigation_service.dart';
-import 'package:buildbase/view/main_content.dart';
 import 'package:buildbase/view/splashscreen/spash_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../view/example/example_view.dart';
-import 'navigation_constants.dart';
+import 'route_constant.dart';
 
 /// Navigation Route which generate the routes
 /// All the routes have to be declared in this file.
 ///
 /// [Navigator] can also be used in the framework to enable the flexibility,
-/// when you don't want to use the [NavigationRoute]
+/// when you don't want to use the [RouterGenerator]
 ///
-/// [NavigationRoute.instance] should be called followed by the [NavigationService] to
+/// [RouterGenerator.instance] should be called followed by the [Router] to
 /// navigate
 ///
-class NavigationRoute {
-  static final NavigationRoute _instance = NavigationRoute._init();
+class RouterGenerator {
+  static final RouterGenerator _instance = RouterGenerator._init();
 
-  static NavigationRoute get instance => _instance;
+  static RouterGenerator get instance => _instance;
 
-  NavigationRoute._init();
+  RouterGenerator._init();
 
   Route<dynamic> generateRoute(RouteSettings args) {
     switch (args.name) {
-      case NavigationConstants.root:
+      case RouterConstant.root:
         return navigate(const SplashScreen(), args);
-      case NavigationConstants.example:
+      case RouterConstant.example:
         return navigate(const ExampleScreen(), args);
-      case NavigationConstants.mainContentView:
-        return navigate(const MainContentView(), args);
       default:
         return MaterialPageRoute(
           builder: (context) => const NotFoundNavigationWidget(),

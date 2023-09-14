@@ -16,4 +16,24 @@ extension WidgetExtension on Widget {
         padding: EdgeInsets.only(bottom: nn),
         child: this,
       );
+
+  Widget pl(double nn) => Padding(
+    padding: EdgeInsets.only(left: nn),
+    child: this,
+  );
+
+  Widget pr(double nn) => Padding(
+    padding: EdgeInsets.only(right: nn),
+    child: this,
+  );
+
+  Widget phv(double nn, double mm) => Padding(
+    padding: EdgeInsets.symmetric(horizontal: nn, vertical: mm),
+    child: this,
+  );
+
+  Widget pa(double nn) => Padding(
+    padding: EdgeInsets.all(nn),
+    child: this,
+  );
 }

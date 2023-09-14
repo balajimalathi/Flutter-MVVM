@@ -1,4 +1,4 @@
-abstract class INavigationService {
+abstract class RouterInterface {
   Future<void>? pushTo(String path, {Object data});
 
   Future<void>? pushAndReplace(String path, {Object data});

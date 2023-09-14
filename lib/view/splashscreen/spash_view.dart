@@ -1,8 +1,7 @@
-import 'package:buildbase/core/navigation/navigation_service.dart';
+import 'package:buildbase/core/navigation/router_service.dart';
 import 'package:flutter/material.dart';
 
-import '../../product/navigation/navigation_constants.dart';
-
+import '../../product/navigation/route_constant.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,7 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         body: Center(
       child: ElevatedButton(
-        onPressed: ()=> NavigationService.instance.pushTo(NavigationConstants.example),
+          onPressed: () =>
+              RouterService.instance.pushTo(RouterConstant.example),
           child: const Text('Splash screen')),
     ));
   }

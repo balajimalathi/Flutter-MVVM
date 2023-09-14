@@ -1,6 +1,5 @@
 import 'package:buildbase/core/cache/local_manager.dart';
-import 'package:buildbase/core/database/db_provider.dart';
-import 'package:buildbase/product/navigation/navigation_constants.dart';
+import 'package:buildbase/product/navigation/route_constant.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,21 +8,20 @@ import 'locator.dart';
 import 'core/notifier/provider_list.dart';
 import 'core/notifier/theme_notifier.dart';
 import 'core/responsive/size_config.dart';
-import 'product/navigation/navigation_route.dart';
-import 'core/navigation/navigation_service.dart';
+import 'product/navigation/router_generator.dart';
+import 'core/navigation/router_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // HttpOverrides.global = MyHttpOverrides();
 
   //Setting up SharedPreferences
   await LocalManager.preferencesInit();
 
-  //DI - GETIT
+  //DI - GetIt
   setupLocator();
 
   //Database initialization - DI
-  Init.initialize();
+  // Init.initialize();
 
   runApp(const MarkApp());
 }
@@ -55,10 +53,10 @@ class MarkApp extends StatelessWidget {
               // locale: context.locale,
               // localizationsDelegates: context.localizationDelegates,
               // supportedLocales: context.supportedLocales,
-              initialRoute: NavigationConstants.root,
-              onGenerateRoute: NavigationRoute.instance.generateRoute,
+              initialRoute: RouterConstant.root,
+              onGenerateRoute: RouterGenerator.instance.generateRoute,
               theme: Provider.of<ThemeNotifier>(context).currentTheme,
-              navigatorKey: NavigationService.instance.navigatorKey,
+              navigatorKey: RouterService.instance.navigatorKey,
               debugShowCheckedModeBanner: true,
             );
           });
@@ -75,6 +73,7 @@ class AppScrollBehavior extends MaterialScrollBehavior {
     PointerDeviceKind.trackpad,
   };
 }
+
 // Certificate pinning
 // //TODO: Change the Url Before Release
 // class MyHttpOverrides extends HttpOverrides {

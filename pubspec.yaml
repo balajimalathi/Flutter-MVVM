@@ -6,35 +6,57 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+
+  # Core Packages
+  get_it: ^7.6.4
   provider: ^6.0.5
-  shared_preferences: ^2.0.20
   flutter_svg: ^2.0.4
-  dio: ^5.0.3
-  intl: ^0.17.0
-  flutter_form_builder: ^7.8.0
-  get_it: ^7.2.0
-  file_picker: ^5.2.6
-  connectivity_plus: ^3.0.3
-  dartz: ^0.10.1
-  unicons: ^2.1.1
-  animate_do: ^3.0.2
-  path_provider: ^2.0.14
-  sembast: ^3.4.3
-  colorize: ^3.0.0
-  change_app_package_name: ^1.1.0
+  path_provider: ^2.1.1
+  shared_preferences: ^2.2.1
+
+  # Form Packages
+  intl: ^0.18.1
+  file_picker: ^5.5.0
+  flutter_form_builder: ^9.1.0
+
+  # Network Packages
+  dio: ^5.3.2
+  connectivity_plus: ^4.0.2
   internet_connection_checker: ^1.0.0+1
-  responsive_ui: ^3.0.0
+
+  # UI Packages
+  unicons: ^2.1.1
+  animate_do: ^3.1.2
+  responsive_ui: ^3.0.1
+
+  # Database Packages
+
+
+  # Misc Packages
+  colorize: ^3.0.0
+
+  # Annotation Packages
+  json_annotation: ^4.8.1
+
+  # Tools
+  _fe_analyzer_shared: ^64.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  change_app_package_name: ^1.1.0
+  flutter_lints: ^2.0.3
+  build_runner: ^2.4.6
+  json_serializable: ^6.7.1
 
-  flutter_lints: ^2.0.1
+
+dependency_overrides:
+  file: ^7.0.0
 
 flutter:
 
@@ -61,15 +83,16 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: RedHatDisplay
+    - family: Urbanist
       fonts:
-        - asset: fonts/RedHatDisplay-Regular.ttf
-        - asset: fonts/RedHatDisplay-Medium.ttf
+        - asset: fonts/urbanist/Urbanist-Regular.ttf
+        - asset: fonts/urbanist/Urbanist-Medium.ttf
           weight: 500
-        - asset: fonts/RedHatDisplay-Bold.ttf
+        - asset: fonts/urbanist/Urbanist-SemiBold.ttf
           weight: 700
-        - asset: fonts/RedHatDisplay-Black.ttf
+        - asset: fonts/urbanist/Urbanist-Bold.ttf
+          weight: 700
+        - asset: fonts/urbanist/Urbanist-Black.ttf
           weight: 800
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
